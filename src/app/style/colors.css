@@ -20,8 +20,13 @@
     color: white;
 }
 
+
 .border-color {
     border-color: var(--border-color);
+}
+
+.border-color-black {
+    border-color: black;
 }
 
 .border-color-error {
@@ -32,10 +37,15 @@
     border-color: transparent;
 }
 
+
 .text-primary {
     color: var(--primary);
 }
 
 .text-secondary {
     color: var(--secondary);
+}
+
+.text-black {
+    color: black;
 }

@@ -34,6 +34,10 @@
     align-items: center;
 }
 
+.flex-items-end {
+    align-items: flex-end;
+}
+
 .flex-content-center {
     justify-content: center;
 }
