@@ -8,16 +8,16 @@ export const TransactionButtons: React.FC = () => {
     const history = useHistory();
 
     return (
-        <div className="padding-m flex-content-center flex-row">
-            <Button onClick={()=> history.push('/deposito')} className="display-flex padding-horizontal-g margin-left-xg margin-right-xg flex-items-center">
+        <div className="padding-m flex-space-between flex-row">
+            <Button onClick={()=> history.push('/deposito')} className="background-white display-flex padding-horizontal-g flex-items-center margin-left-g">
                 <IconDeposit className="margin-right-s" width={36} />
                 Deposito
             </Button>
-            <Button onClick={()=> history.push('/transferencia')} className="display-flex padding-horizontal-g margin-left-xg margin-right-xg flex-items-center">
+            <Button onClick={()=> history.push('/transferencia')} className="background-white display-flex padding-horizontal-g flex-items-center">
                 <IconTransfer className="margin-right-s" width={30} />
                 Transferência
             </Button>
-            <Button onClick={()=> history.push('/pagamento')} className="display-flex padding-horizontal-g margin-left-xg margin-right-xg flex-items-center" >
+            <Button onClick={()=> history.push('/pagamento')} className="background-white display-flex padding-horizontal-g flex-items-center margin-right-g" >
                 <IconPayment className="margin-right-s" width={30} />
                 Pagamento
             </Button>

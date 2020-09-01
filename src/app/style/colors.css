@@ -15,6 +15,10 @@
     background-color: var(--secondary);
 }
 
+.background-white {
+    background-color: white;
+}
+
 .background-error {
     background-color: var(--background-error);
     color: white;
@@ -35,6 +39,10 @@
 
 .border-color-none {
     border-color: transparent;
+}
+
+.border-thin-gray {
+    border: thin solid gray;
 }
 
 
