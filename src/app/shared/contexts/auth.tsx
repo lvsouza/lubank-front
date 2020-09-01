@@ -6,7 +6,8 @@ interface IAuthContextData {
     isLogged: boolean;
     isLoading: boolean;
     logout(): Promise<void>;
-    login(email: string, password: string): Promise<void>;
+    login(email: string, password: string): Promise<boolean>;
+    signup(name: string, email: string, password: string): Promise<boolean>;
     user: {
         name: string;
         email: string;
@@ -28,6 +29,47 @@ export const AuthProvider: React.FC = ({ children }) => {
         }));
     }, []);
 
+    const handleSignup = useCallback(async (name: string, email: string, password: string) => {
+        setAuthData(oldState => ({
+            ...oldState,
+            isLoading: true,
+        }));
+
+        try {
+            Api(false).post('/signup', {}, {
+                headers: {
+                    email,
+                    password,
+                    name,
+                }
+            })
+                .then(({ data: { data } }) => {
+                    LocalStorageService.setAuthToken(data.accessToken);
+                    LocalStorageService.setUserData(data.user);
+                    setAuthData(oldState => ({
+                        ...oldState,
+                        isLoading: false,
+                        user: data.user,
+                        isLogged: true,
+                    }));
+                    return true;
+                })
+                .catch((e) => {
+                    console.log(e.message)
+                    setAuthData(oldState => ({
+                        ...oldState,
+                        isLoading: false,
+                    }));
+                    return false;
+                });
+        } catch (error) {
+            console.log(error.message)
+            setAuthData(oldState => ({ ...oldState, isLoading: false }));
+            return false;
+        }
+        return true;
+    }, []);
+
     const handleLogin = useCallback(async (email: string, password: string) => {
         setAuthData(oldState => ({
             ...oldState,
@@ -41,7 +83,7 @@ export const AuthProvider: React.FC = ({ children }) => {
                     password
                 }
             })
-                .then(({ data }) => {
+                .then(({ data: { data } }) => {
                     LocalStorageService.setAuthToken(data.accessToken);
                     LocalStorageService.setUserData(data.user);
                     setAuthData(oldState => ({
@@ -50,17 +92,21 @@ export const AuthProvider: React.FC = ({ children }) => {
                         user: data.user,
                         isLogged: true,
                     }));
+                    return true;
                 })
                 .catch((_) => {
                     setAuthData(oldState => ({
                         ...oldState,
                         isLoading: false,
                     }));
+                    return false;
                 });
         } catch (error) {
             console.log(error)
             setAuthData(oldState => ({ ...oldState, isLoading: false }));
+            return false;
         }
+        return true;
     }, []);
 
     const handleLogout = useCallback(async () => {
@@ -82,6 +128,7 @@ export const AuthProvider: React.FC = ({ children }) => {
         isLoading: false,
         login: handleLogin,
         logout: handleLogout,
+        signup: handleSignup,
         user: { name: '', email: '', account_number: '', agency: '' }
     });
 

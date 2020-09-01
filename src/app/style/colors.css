@@ -2,6 +2,8 @@
     --primary: #013B65;
     --secondary: #6FCF97;
     --border-color: #afafaf;
+    --border-color-error: #a01414;
+    --background-error: #ff0000a8;
 }
 
 .background-primary {
@@ -13,8 +15,17 @@
     background-color: var(--secondary);
 }
 
+.background-error {
+    background-color: var(--background-error);
+    color: white;
+}
+
 .border-color {
     border-color: var(--border-color);
+}
+
+.border-color-error {
+    border-color: var(--border-color-error)!important;
 }
 
 .border-color-none {

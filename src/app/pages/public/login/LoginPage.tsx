@@ -13,12 +13,17 @@ export const LoginPage: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPasword] = useState('');
 
+    const [hasError, setHasError] = useState(false);
+
     const handlerLogin = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        await login(email, password);
+        if (isLoading) return;
 
-    }, [email, password, login]);
+        const res = await login(email, password);
+        setHasError(res);
+
+    }, [email, password, isLoading, login]);
 
     return (
         <div className="flex1 degrade-login flex-content-center flex-items-center">
@@ -29,13 +34,17 @@ export const LoginPage: React.FC = () => {
                 <b>entre na sua conta!</b>
                 <br />
                 <form className="display-flex flex-column flex-content-center" onSubmit={handlerLogin}>
+                    {hasError && <div className="padding-s border-color-error border-thin border-radius-soft text-center background-error">
+                        Erro no login
+                    </div>}
+                    <br />
                     <Input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.currentTarget.value)} disabled={isLoading} required />
                     <br />
                     <Input type="password" placeholder="Senha" value={password} onChange={e => setPasword(e.currentTarget.value)} disabled={isLoading} required />
                     <br />
                     <Button className="background-primary" disabled={isLoading}>Entrar</Button>
                     <br />
-                    <Link onClick={() => history.push('/signup')} disabled={isLoading}>Cadastrar-se</Link>
+                    <Link onClick={!isLoading ? (() => history.push('/signup')) : undefined} disabled={isLoading}>Cadastrar-se</Link>
                 </form>
             </div>
         </div>

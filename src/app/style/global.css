@@ -77,6 +77,18 @@ label, button {
     cursor: pointer;
 }
 
+.border-thin {
+    border: thin solid;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
 /* Ajusta o scroll de todos os elementos. */
 
 ::-webkit-scrollbar {
