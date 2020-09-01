@@ -1,7 +1,22 @@
 :root {
-    --primary: #013B65
+    --primary: #013B65;
+    --secondary: #6FCF97;
+    --border-color: #afafaf;
 }
 
 .background-primary {
     background-color: var(--primary);
+    color: white;
+}
+
+.background-secondary {
+    background-color: var(--secondary);
+}
+
+.border-color {
+    border-color: var(--border-color);
+}
+
+.border-color-none {
+    border-color: transparent;
 }

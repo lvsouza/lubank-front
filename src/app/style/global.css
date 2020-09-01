@@ -2,14 +2,17 @@
 @import "./paddings.css";
 @import "./margins.css";
 @import "./opacity.css";
+@import "./shadows.css";
 @import "./colors.css";
+@import "./radius.css";
 @import "./fonts.css";
 @import "./flexs.css";
+@import "./texts.css";
 /* Vars*/
 
 :root {
     --default-font: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --default-outline: 1px solid #f3f3f3;
+    --default-outline: 1px solid var(--primary);
     /** Sizes **/
     --size-xxs: 1px;
     --size-xs: 4px;
@@ -30,6 +33,7 @@
 
 *:focus {
     outline: var(--default-outline);
+    outline-style: auto;
 }
 
 html, body, #root {
@@ -37,7 +41,6 @@ html, body, #root {
     background-color: transparent;
     flex-direction: column;
     overflow: hidden;
-    color: white;
     height: 100vh;
     display: flex;
     width: 100vw;
@@ -49,24 +52,28 @@ html, body, #root {
 
 div {
     background-color: var(--color-transparent);
+    flex-direction: column;
     display: flex;
 }
 
 a {
     cursor: pointer;
-    color: #007bff;
+    color: #0035ff;
 }
 
-a:hover {
-    color: #c4c4ff;
+button:hover, a:hover {
+    opacity: 0.9;
+}
+
+button:active {
+    opacity: 0.8;
 }
 
 a:active {
-    color: white;
     opacity: 0.5;
 }
 
-label {
+label, button {
     cursor: pointer;
 }
 

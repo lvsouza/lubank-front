@@ -6,7 +6,7 @@ export const Api = (includeAuthHeader: boolean = true) => {
     const accessToken = LocalStorageService.getAuthToken();
 
     const instence = Axios.create({
-        baseURL: 'http://localhost:3333',
+        baseURL: 'http://localhost:3333/api',
         headers: {
             ...(includeAuthHeader
                 ? { authorization: accessToken ? `Bearer ${accessToken}` : '' }

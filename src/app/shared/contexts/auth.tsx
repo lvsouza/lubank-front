@@ -35,7 +35,7 @@ export const AuthProvider: React.FC = ({ children }) => {
         }));
 
         try {
-            Api(false).get('/auth', {
+            Api(false).get('/sign', {
                 headers: {
                     email,
                     password
