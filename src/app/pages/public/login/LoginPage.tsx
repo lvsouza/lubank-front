@@ -4,29 +4,25 @@ import { useHistory } from 'react-router-dom';
 import { Input, Button, Link } from '../../../shared/components';
 import { useAuth } from '../../../shared/hooks';
 import { LubankLogo } from '../../../assets';
-import './LoginPage.css';
 
 export const LoginPage: React.FC = () => {
     const history = useHistory();
-    const { login, isLoading } = useAuth();
+    const { login, isLoading, hasError } = useAuth();
 
     const [email, setEmail] = useState('');
     const [password, setPasword] = useState('');
-
-    const [hasError, setHasError] = useState(false);
 
     const handlerLogin = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (isLoading) return;
 
-        const res = await login(email, password);
-        setHasError(res);
+        login(email, password);
 
     }, [email, password, isLoading, login]);
 
     return (
-        <div className="flex1 degrade-login flex-content-center flex-items-center">
+        <div className="flex1 degrade flex-content-center flex-items-center">
             <div className="shadow-soft padding-g background-secondary border-radius-soft flex-items-center">
                 <LubankLogo height={80} width={80} />
                 <br />

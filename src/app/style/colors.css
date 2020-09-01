@@ -31,3 +31,11 @@
 .border-color-none {
     border-color: transparent;
 }
+
+.text-primary {
+    color: var(--primary);
+}
+
+.text-secondary {
+    color: var(--secondary);
+}

@@ -4,18 +4,16 @@ import { useHistory } from 'react-router-dom';
 import { Input, Button, Link } from '../../../shared/components';
 import { useAuth } from '../../../shared/hooks';
 import { LubankLogo } from '../../../assets';
-import './SignupPage.css';
 
 export const SignupPage: React.FC = () => {
     const history = useHistory();
-    const { signup, isLoading } = useAuth();
+    const { signup, isLoading, hasError } = useAuth();
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPasword] = useState('');
     const [passwordAgain, setPaswordAgain] = useState('');
 
-    const [hasError, setHasError] = useState(false);
     const [hasPasswordNotEqual, setHasPasswordNotEqual] = useState(false);
 
     const handlerSignup = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
@@ -23,7 +21,6 @@ export const SignupPage: React.FC = () => {
 
         if (isLoading) return;
 
-        setHasError(false);
         setHasPasswordNotEqual(false);
 
         if (password !== passwordAgain) {
@@ -31,13 +28,12 @@ export const SignupPage: React.FC = () => {
             return;
         }
 
-        const res = await signup(name, email, password);
-        setHasError(res);
+        signup(name, email, password);
 
     }, [name, email, password, passwordAgain, isLoading, setHasPasswordNotEqual, signup]);
 
     return (
-        <div className="flex1 degrade-signup flex-content-center flex-items-center">
+        <div className="flex1 degrade flex-content-center flex-items-center">
             <div className="shadow-soft padding-g background-secondary border-radius-soft flex-items-center">
                 <LubankLogo height={80} width={80} />
                 <br />

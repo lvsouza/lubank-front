@@ -3,11 +3,12 @@ import React, { createContext, useState, useCallback, useEffect } from 'react';
 import { Api, LocalStorageService } from './../services';
 
 interface IAuthContextData {
+    hasError: boolean;
     isLogged: boolean;
     isLoading: boolean;
     logout(): Promise<void>;
-    login(email: string, password: string): Promise<boolean>;
-    signup(name: string, email: string, password: string): Promise<boolean>;
+    login(email: string, password: string): void;
+    signup(name: string, email: string, password: string): void;
     user: {
         name: string;
         email: string;
@@ -33,6 +34,7 @@ export const AuthProvider: React.FC = ({ children }) => {
         setAuthData(oldState => ({
             ...oldState,
             isLoading: true,
+            hasError: false,
         }));
 
         try {
@@ -50,30 +52,27 @@ export const AuthProvider: React.FC = ({ children }) => {
                         ...oldState,
                         isLoading: false,
                         user: data.user,
+                        hasError: false,
                         isLogged: true,
                     }));
-                    return true;
                 })
-                .catch((e) => {
-                    console.log(e.message)
+                .catch((_) => {
                     setAuthData(oldState => ({
                         ...oldState,
                         isLoading: false,
+                        hasError: true,
                     }));
-                    return false;
                 });
         } catch (error) {
-            console.log(error.message)
-            setAuthData(oldState => ({ ...oldState, isLoading: false }));
-            return false;
+            setAuthData(oldState => ({ ...oldState, isLoading: false, hasError: true }));
         }
-        return true;
     }, []);
 
     const handleLogin = useCallback(async (email: string, password: string) => {
         setAuthData(oldState => ({
             ...oldState,
             isLoading: true,
+            hasError: false,
         }));
 
         try {
@@ -90,23 +89,20 @@ export const AuthProvider: React.FC = ({ children }) => {
                         ...oldState,
                         isLoading: false,
                         user: data.user,
+                        hasError: false,
                         isLogged: true,
                     }));
-                    return true;
                 })
                 .catch((_) => {
                     setAuthData(oldState => ({
                         ...oldState,
                         isLoading: false,
+                        hasError: true,
                     }));
-                    return false;
                 });
-        } catch (error) {
-            console.log(error)
-            setAuthData(oldState => ({ ...oldState, isLoading: false }));
-            return false;
+        } catch (_) {
+            setAuthData(oldState => ({ ...oldState, isLoading: false, hasError: true }));
         }
-        return true;
     }, []);
 
     const handleLogout = useCallback(async () => {
@@ -125,6 +121,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     const [authData, setAuthData] = useState<IAuthContextData>({
         isLogged: false,
+        hasError: false,
         isLoading: false,
         login: handleLogin,
         logout: handleLogout,
