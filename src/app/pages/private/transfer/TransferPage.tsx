@@ -6,6 +6,8 @@ import { Utils, Api } from '../../../shared/services';
 export const TransferPage: React.FC = () => {
     const [isLoading, setIsLoading] = useState(false);
 
+    Utils.setWindowTitle('Trasferência');
+
     const [state, setState] = useState({
         cpf: '',
         accountNumber: '',

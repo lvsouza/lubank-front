@@ -2,12 +2,15 @@ import React, { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { Input, Button, Link } from '../../../shared/components';
+import { Utils } from '../../../shared/services';
 import { useAuth } from '../../../shared/hooks';
 import { LubankLogo } from '../../../assets';
 
 export const SignupPage: React.FC = () => {
     const history = useHistory();
     const { signup, isLoading, hasError } = useAuth();
+
+    Utils.setWindowTitle('Cadastro');
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');

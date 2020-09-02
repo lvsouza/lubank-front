@@ -7,6 +7,8 @@ import { Utils, Api } from '../../../shared/services';
 export const PaymentPage: React.FC = () => {
     const history = useHistory();
 
+    Utils.setWindowTitle('Pagamento');
+
     const [billetNumber, setBilletNumber] = useState('');
 
     const [newBillet, setNewBillet] = useState({

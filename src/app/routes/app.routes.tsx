@@ -1,8 +1,14 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import { Header, Body, UserBalance, TransactionButtons } from '../shared/components';
 import { PaymentPage, DepositPage, TransferPage, HistoryPage, PayPage } from '../pages';
+import { Header, Body, UserBalance, TransactionButtons } from '../shared/components';
+import { Utils } from '../shared/services';
+
+const HomePage = () => {
+    Utils.setWindowTitle('Página inicial');
+    return null;
+}
 
 export const AppRoutes: React.FC = () => {
     return (
@@ -12,7 +18,7 @@ export const AppRoutes: React.FC = () => {
                 <UserBalance />
                 <TransactionButtons />
                 <Switch>
-                    <Route path={"/pagina-inicial"} exact component={() => <></>} />
+                    <Route path={"/pagina-inicial"} exact component={HomePage} />
                     <Route path={"/transferencia"} exact component={TransferPage} />
                     <Route path={"/historico"} exact component={HistoryPage} />
                     <Route path={"/pagamento"} exact component={PaymentPage} />

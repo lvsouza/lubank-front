@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 import { ITransaction } from '../../../shared/interfaces/ITransaction';
 import { Section, ItemList } from '../../../shared/components';
-import { Api } from '../../../shared/services';
+import { Api, Utils } from '../../../shared/services';
 
 export const HistoryPage: React.FC = () => {
+
+    Utils.setWindowTitle('Histórico');
 
     const [transactions, setTransactions] = useState<ITransaction[]>([]);
     useEffect(() => {

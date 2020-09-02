@@ -2,13 +2,15 @@ import React, { useCallback, useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
 import { Section, Button } from '../../../shared/components';
+import { Api, Utils } from '../../../shared/services';
 import { useAuth } from '../../../shared/hooks';
-import { Api } from '../../../shared/services';
 
 export const PayPage: React.FC = () => {
     const { billet } = useParams();
     const history = useHistory();
     const { user } = useAuth();
+
+    Utils.setWindowTitle('Pagamento');
 
     const [isLoading, setIsLoading] = useState(false);
 

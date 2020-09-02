@@ -4,9 +4,9 @@ export class Utils {
     /** Modifica o titulo da página na aba do navegador */
     public static setWindowTitle(title: string) {
         if (title !== "")
-            window.document.title = title + " - Ordens de serviço";
+            window.document.title = title + " - Lubank";
         else
-            window.document.title = "Ordens de serviço";
+            window.document.title = "Lubank";
     }
 
     /**

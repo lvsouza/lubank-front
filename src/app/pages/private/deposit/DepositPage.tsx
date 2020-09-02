@@ -7,6 +7,8 @@ export const DepositPage: React.FC = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [value, setValue] = useState('');
 
+    Utils.setWindowTitle('Deposito');
+
     const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
         if (isLoading) return;
 
