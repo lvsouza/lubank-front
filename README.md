@@ -25,6 +25,7 @@ Para ser possível a conslusão deste projeto foram utilizados algums outros rec
 
 ## A aplicação
 
+  - Backend da aplicação [aqui](https://github.com/lvsouza/lubank-backend).
 - **Principais funcionalidades**
   - Autenticação - Permite que um usuário que já tenha uma conta cadastrada faça login e veja sua conta
   - Cadastro - Permite que um pessoa possa criar uma conta dentro da aplicação e tenha uma conta remunerada
