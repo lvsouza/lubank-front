@@ -1,44 +1,49 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 style="font-size:50px" align="center">Lubank</h1>
 
-## Available Scripts
+<p align="center">
+  <img src="https://raw.githubusercontent.com/lvsouza/lubank-front/master/docs/logo-lubank.png" height="320" alt="Logo lubank" />
+</p>
 
-In the project directory, you can run:
 
-### `yarn start`
+## Descrição
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Sistema de controle de conta corrente bancária, processando solicitações de depósito, resgates e pagamentos. Esta aplicação é frontend desse projeto [aqui](https://github.com/lvsouza/lubank-backend).
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
+## De onde veio a ideia
+A ideia do projeto veio através de um desafio. Os requisitos inicias que deram origem a todo este conteúdo pode ser encontrado aqui neste [link](https://docs.google.com/document/d/109Des7J2tU1Gk_Tg8gwvgAsSm2hm1abN8XNAydOZVts/edit?usp=sharing). Os nomes e os logo tipos forande desenvolvidos apenas para dar uma identidade extra ao projeto.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## Sobre o desenvolvimento
+Para ser possível a conslusão deste projeto foram utilizados algums outros recursos disponíveis aqui mesmo no github, e no figma.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1. [Link](https://github.com/lvsouza/lubank-backend/issues?q=is%3Aissue+is%3Aclosed) **Issues para consulta da documentação da API** - Para ser possível o desenvolvimento desse frontend é utilizado como backend uma API desenvolvida com nodejs. No link acima você poderá encontrar toda a documentação necessária para as conexões.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. [Link](https://www.figma.com/file/bfGY4OUuswbhz7DMn1Y6Mr/Lubank?node-id=0%3A1) **Protótipo no figma** - Para facilitar o desenvolvimento, eu([Lucas Souza](https://github.com/lvsouza)) desenvolvi um protótipo que exemplifica os principais recursos que a aplicação terá.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## A aplicação
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Principais funcionalidades**
+  - Autenticação - Permite que um usuário que já tenha uma conta cadastrada faça login e veja sua conta
+  - Cadastro - Permite que um pessoa possa criar uma conta dentro da aplicação e tenha uma conta remunerada
+  - Extrato / histórico da conta (entradas e saídas) - Permite que seja consultado o extrato completo da conta
+  - Realizar um depósito - Possibilita que seja feito um depósito na conta do usuário logado
+  - Realizar um resgate - Permite realizar uma transferência para outra conta qualquer
+  - Fazer um pagamento - Permite pagar boletos que foram cadastrados previamente na base
+  - Consulta de saldo - Consulta o saldo em conta, e o atualiza com o calculo de juros
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Executando a aplicação
+```BASH
+git clone https://github.com/lvsouza/lubank-front.git
+cd ./lubank-front/
+yarn
+yarn start
+```
+Interaja com a aplicação em `http://localhost:3000/`
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
+MIT @ [Lucas Souza](https://github.com/lvsouza)
