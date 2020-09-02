@@ -12,7 +12,7 @@ export const Header: React.FC = () => {
             <div className="background-primary padding-m flex-items-center">
                 <div style={{ height: 25 }} className="full-width flex-row flex-space-between flex-items-center" />
             </div>
-            <div className="background-primary padding-m flex-items-center fixed full-width">
+            <div className="background-primary padding-m flex-items-center fixed full-width" style={{ zIndex: 10 }}>
                 <div style={{ maxWidth: 720 }} className="full-width flex-row flex-space-between flex-items-center">
                     <LubankLogoName width={121} height={25} onClick={() => history.push('/')} className="cursor-pointer" />
                     <UserInfo />

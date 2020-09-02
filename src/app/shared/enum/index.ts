@@ -1,1 +1,2 @@
-export * from './LocaStorageEnum';
+export { ETransactionTypes } from './ETransactionTypes';
+export { LocalStorageEnum } from './LocaStorageEnum';

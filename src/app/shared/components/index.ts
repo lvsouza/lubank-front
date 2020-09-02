@@ -1,5 +1,6 @@
 export { TransactionButtons } from './transaction/TransactionButtons';
 export { UserBalance } from './user-balance/UserBalance';
+export { ItemList } from './item-list/ItemList';
 export { Section } from './section/Section';
 export { Button } from './button/Button';
 export { Header } from './header/Header';

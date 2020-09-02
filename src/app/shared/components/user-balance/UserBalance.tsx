@@ -17,7 +17,7 @@ export const UserBalance: React.FC = () => {
     }, []);
 
     return (
-        <div className="padding-m">
+        <div className="padding-m translate-y">
             <p className="opacity-7 text-center" style={{ paddingRight: 150 }}>Seu saldo atual</p>
             <div className="flex-row flex-content-center flex-items-end">
                 <h1 className="display-flex text-center flex-items-end padding-s" style={{ fontSize: 14, lineHeight: '16px', fontWeight: 'normal' }}>R$:</h1>

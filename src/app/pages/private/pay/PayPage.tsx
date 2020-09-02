@@ -42,7 +42,7 @@ export const PayPage: React.FC = () => {
         setIsLoading(true);
 
         Api()
-            .post('pay-billet', { code: billet })
+            .post('pay-billet', { code: billet }, { timeout: 5000 })
             .then(() => {
                 alert('Seu boleto foi pago com sucesso. Obrigado!')
                 history.goBack();
@@ -54,7 +54,7 @@ export const PayPage: React.FC = () => {
     }, [billet, history, isLoading]);
 
     return (
-        <div className="padding-m">
+        <div className="padding-m translate-y">
             <Section title="Pagamento">
                 <div>
                     <p className="margin-bottom-xs opacity-7">Código de barras do boleto</p>

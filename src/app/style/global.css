@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap');
+
 @import "./animations.css";
 @import "./paddings.css";
 @import "./margins.css";
@@ -11,7 +13,7 @@
 /* Vars*/
 
 :root {
-    --default-font: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --default-font: 'Roboto', sans-serif;
     --default-outline: 1px solid var(--primary);
     /** Sizes **/
     --size-xxs: 1px;
@@ -61,7 +63,7 @@ a {
     color: #0035ff;
 }
 
-button:hover, a:hover {
+button:focus, button:hover, a:hover {
     opacity: 0.9;
 }
 

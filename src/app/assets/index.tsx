@@ -2,6 +2,8 @@ import React from 'react';
 
 import ImgLubankLogoName from './lubank-logo-name.png';
 import ImgIconTransfer from './transfer-icon.png';
+import ImgIconNegative from './negative-icon.png';
+import ImgIconPositive from './positive-icon.png';
 import ImgIconHistory from './history-icon.png';
 import ImgIconPayment from './payment-icon.png';
 import ImgIconDeposit from './deposit-icon.png';
@@ -22,3 +24,7 @@ export const IconTransfer: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> =
 export const IconPayment: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = (props) => <img alt="Histórico" src={ImgIconPayment} {...props} />;
 
 export const IconDeposit: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = (props) => <img alt="Histórico" src={ImgIconDeposit} {...props} />;
+
+export const IconNegative: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = (props) => <img alt="Histórico" src={ImgIconNegative} {...props} />;
+
+export const IconPositive: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = (props) => <img alt="Histórico" src={ImgIconPositive} {...props} />;

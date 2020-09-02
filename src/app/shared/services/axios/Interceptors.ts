@@ -9,9 +9,9 @@ class Interceptors {
     public responseInterceptor(response: AxiosResponse<any>): AxiosResponse<any> {
 
         // Intercepta error no token jwt.   
-        if (response.data.code) {
-            const errorCode = response.data.code;
-            if (errorCode === 'invalid-jwt') {
+        if (response.data.data.statusCode) {
+            const errorCode = response.data.data.statusCode;
+            if (errorCode === 401) {
                 LocalStorageService.removeAuthToken();
                 window.location.reload();
             } else {
@@ -30,15 +30,7 @@ class Interceptors {
         // Intercepta error no token jwt.   
         if (error.response.data.statusCode) {
             const errorCode = error.response.data.statusCode;
-            if (errorCode === 'invalid-jwt') {
-                LocalStorageService.removeAuthToken();
-                window.location.reload();
-            } else if (errorCode === 'invalid-credentials') {
-                // useAlertService().alert(AlertTypes.error, error.response.data.message)
-            }
-        } else if (error.response.data.statusCode) {
-            const errorCode = error.response.data.message;
-            if (`${errorCode}`.includes('authorization')) {
+            if (errorCode === 401) {
                 LocalStorageService.removeAuthToken();
                 window.location.reload();
             }
