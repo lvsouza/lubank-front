@@ -43,7 +43,7 @@ export const DepositPage: React.FC = () => {
                         />
                     </div>
                     <div className="flex-row flex-content-end">
-                        <Button className="background-primary padding-horizontal-xg" disabled={isLoading}>Depositar</Button>
+                        <Button className="background-primary padding-horizontal-xg" disabled={isLoading || (Number(value) <= 0)}>Depositar</Button>
                     </div>
                 </form>
             </Section>

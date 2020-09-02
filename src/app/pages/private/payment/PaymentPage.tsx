@@ -43,7 +43,7 @@ export const PaymentPage: React.FC = () => {
                         <Input id="bars-code" type="number" value={billetNumber} onChange={e => setBilletNumber(e.currentTarget.value)} className="border-thin-gray" placeholder="Ex: 00000000000000" required />
                     </div>
                     <div className="flex-row flex-content-end">
-                        <Button className="background-primary padding-horizontal-xg">Continuar</Button>
+                        <Button className="background-primary padding-horizontal-xg" disabled={billetNumber.trim().length < 3}>Continuar</Button>
                     </div>
                 </form>
             </Section>
@@ -52,11 +52,11 @@ export const PaymentPage: React.FC = () => {
             <Section title="Gerar um novo boleto">
                 <form onSubmit={handleNewBillet}>
                     <div>
-                        <label className="margin-bottom-xs opacity-7" htmlFor="new-billet-bars-code">Nome do favorecido</label>
+                        <label className="margin-bottom-xs opacity-7" htmlFor="new-billet-favored">Nome do favorecido</label>
                         <Input
                             required
                             type="text"
-                            id="new-billet-bars-code"
+                            id="new-billet-favored"
                             value={newBillet.favored}
                             className="border-thin-gray"
                             placeholder="Ex: João Carlos"
@@ -77,13 +77,13 @@ export const PaymentPage: React.FC = () => {
                             />
                         </div>
                         <div className="margin-left-g">
-                            <label className="margin-bottom-xs opacity-7" htmlFor="new-billet-bars-code">Valor do boleto</label>
+                            <label className="margin-bottom-xs opacity-7" htmlFor="new-billet-value">Valor do boleto</label>
                             <Input
                                 required
                                 type="number"
+                                id="new-billet-value"
                                 placeholder="Ex: 10.00"
                                 value={newBillet.value}
-                                id="new-billet-bars-code"
                                 className="border-thin-gray"
                                 onChange={e => setNewBillet({ ...newBillet, value: Utils.maskNumero(e.target.value) })}
                                 onBlur={e => setNewBillet({ ...newBillet, value: Utils.maskNumero(Number(e.target.value).toFixed(2)) })}
@@ -91,7 +91,7 @@ export const PaymentPage: React.FC = () => {
                         </div>
                     </div>
                     <div className="flex-row flex-content-end">
-                        <Button className="background-primary padding-horizontal-xg margin-top-g">Gerar boleto</Button>
+                        <Button className="background-primary padding-horizontal-xg margin-top-g" disabled={newBillet.code.trim().length < 3}>Gerar boleto</Button>
                     </div>
                 </form>
             </Section>

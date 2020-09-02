@@ -43,7 +43,8 @@ export const PayPage: React.FC = () => {
 
         Api()
             .post('pay-billet', { code: billet }, { timeout: 5000 })
-            .then(() => {
+            .then((data) => {
+                console.log(data)
                 alert('Seu boleto foi pago com sucesso. Obrigado!')
                 history.goBack();
             })
@@ -69,7 +70,7 @@ export const PayPage: React.FC = () => {
                     <div>
                         <br />
                         <p className="margin-bottom-xs opacity-7">Conta</p>
-                        {user.account_number}
+                        {user.accountNumber}
                     </div>
                     <div>
                         <br />

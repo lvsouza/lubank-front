@@ -114,7 +114,7 @@ export const TransferPage: React.FC = () => {
                             />
                         </div>
                         <div className="flex-row flex-content-end">
-                            <Button className="background-primary padding-horizontal-xg" disabled={isLoading}>Transferir</Button>
+                            <Button className="background-primary padding-horizontal-xg" disabled={isLoading || (Number(state.value) <= 0)}>Transferir</Button>
                         </div>
                     </div>
                 </form>

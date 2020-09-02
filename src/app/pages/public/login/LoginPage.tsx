@@ -23,7 +23,7 @@ export const LoginPage: React.FC = () => {
 
     return (
         <div className="flex1 degrade flex-content-center flex-items-center">
-            <div className="shadow-soft padding-g background-secondary border-radius-soft flex-items-center">
+            <div className="shadow-soft padding-g background-secondary border-radius-soft flex-items-center translate-y">
                 <LubankLogo height={80} width={80} />
                 <br />
                 <p>Olá,</p>

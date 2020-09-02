@@ -33,6 +33,8 @@ class Interceptors {
             if (errorCode === 401) {
                 LocalStorageService.removeAuthToken();
                 window.location.reload();
+            } else {
+                throw new Error(error.response.data.message);
             }
         }
 

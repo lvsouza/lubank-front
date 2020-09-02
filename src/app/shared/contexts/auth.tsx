@@ -13,7 +13,7 @@ interface IAuthContextData {
         name: string;
         email: string;
         agency: string;
-        account_number: string;
+        accountNumber: string;
     }
 }
 
@@ -115,7 +115,7 @@ export const AuthProvider: React.FC = ({ children }) => {
         setAuthData(oldState => ({
             ...oldState,
             isLogged: false,
-            user: { email: '', name: '', account_number: '', agency: '' }
+            user: { email: '', name: '', accountNumber: '', agency: '' }
         }))
     }, []);
 
@@ -126,7 +126,7 @@ export const AuthProvider: React.FC = ({ children }) => {
         login: handleLogin,
         logout: handleLogout,
         signup: handleSignup,
-        user: { name: '', email: '', account_number: '', agency: '' }
+        user: { name: '', email: '', accountNumber: '', agency: '' }
     });
 
     return (
