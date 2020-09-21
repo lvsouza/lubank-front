@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { UserBalaceUpdate } from './UserBalaceUpdate';
 import { IconHistory } from '../../../assets';
 import { Api } from '../../services';
 
@@ -13,7 +14,17 @@ export const UserBalance: React.FC = () => {
         Api().get('/balance')
             .then(({ data: { data } }) => {
                 setBalance(Number(data.balance));
-            })
+            });
+
+        /* const subscription =  */UserBalaceUpdate.listen().subscribe(async res => {
+            console.log(res)
+            Api().get('/balance')
+                .then(({ data: { data } }) => {
+                    setBalance(Number(data.balance));
+                });
+        });
+
+        // return subscription.unsubscribe;
     }, []);
 
     return (

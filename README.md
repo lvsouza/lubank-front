@@ -1,4 +1,4 @@
-<h1 style="font-size:50px" align="center">Lubank</h1>
+<h1 style="font-size:50px" align="center">Lubank - Front</h1>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/lvsouza/lubank-front/master/docs/logo-lubank.png" height="320" alt="Logo lubank" />

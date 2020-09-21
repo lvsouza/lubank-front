@@ -4,9 +4,10 @@ import { useHistory, useParams } from 'react-router-dom';
 import { Section, Button } from '../../../shared/components';
 import { Api, Utils } from '../../../shared/services';
 import { useAuth } from '../../../shared/hooks';
+import { UserBalaceUpdate } from '../../../shared/components/user-balance/UserBalaceUpdate';
 
 export const PayPage: React.FC = () => {
-    const { billet } = useParams();
+    const { billet } = useParams<{ billet: string }>();
     const history = useHistory();
     const { user } = useAuth();
 
@@ -45,9 +46,9 @@ export const PayPage: React.FC = () => {
 
         Api()
             .post('pay-billet', { code: billet }, { timeout: 5000 })
-            .then((data) => {
-                console.log(data)
-                alert('Seu boleto foi pago com sucesso. Obrigado!')
+            .then(data => {
+                UserBalaceUpdate.update();
+                alert('Seu boleto foi pago com sucesso. Obrigado!');
                 history.goBack();
             })
             .catch(e => {
